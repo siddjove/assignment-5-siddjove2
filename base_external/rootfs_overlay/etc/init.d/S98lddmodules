@@ -1,0 +1,21 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Loading LDD modules"
+
+    modprobe hello || true
+    insmod /lib/modules/$(uname -r)/extra/faulty.ko || true
+    insmod /lib/modules/$(uname -r)/extra/scull.ko || true
+    ;;
+
+  stop)
+    echo "Unloading LDD modules"
+
+    rmmod scull || true
+    rmmod faulty || true
+    rmmod hello || true
+    ;;
+esac
+
+exit 0
