@@ -1,0 +1,7 @@
+config BR2_PACKAGE_LDD
+    bool "ldd kernel modules"
+    help
+      Build and install Linux Device Drivers (LDD) examples:
+      - scull
+      - misc-modules (hello, faulty)
+
